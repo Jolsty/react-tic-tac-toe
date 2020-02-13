@@ -2,11 +2,11 @@
 	"name": "react-tic-tac-toe",
 	"version": "1.0.0",
 	"description": "Just some spare time activity",
-	"main": "src/index.js",
+	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"create": "webpack",
-		"dev": "next",
+		"dev": "next -p 8080",
 		"build": "next build",
 		"start": "next start"
 	},
@@ -22,9 +22,12 @@
 	},
 	"homepage": "https://github.com/Jolsty/react-tic-tac-toe#readme",
 	"dependencies": {
+		"babel-plugin-module-resolver": "^4.0.0",
 		"next": "^9.2.1",
+		"prop-types": "^15.7.2",
 		"react": "^16.12.0",
-		"react-dom": "^16.12.0"
+		"react-dom": "^16.12.0",
+		"uuid": "^3.4.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.8.4",
@@ -34,6 +37,7 @@
 		"css-loader": "^3.4.2",
 		"eslint": "^6.8.0",
 		"eslint-config-prettier": "^6.10.0",
+		"eslint-plugin-html": "^6.0.0",
 		"eslint-plugin-prettier": "^3.1.2",
 		"eslint-plugin-react": "^7.18.3",
 		"html-webpack-plugin": "^3.2.0",
@@ -42,11 +46,5 @@
 		"webpack": "^4.41.6",
 		"webpack-cli": "^3.3.11",
 		"webpack-dev-server": "^3.10.3"
-	},
-	"babel": {
-		"presets": [
-			"@babel/preset-env",
-			"@babel/preset-react"
-		]
 	}
 }

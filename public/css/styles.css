@@ -1,0 +1,57 @@
+body {
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: 100px auto auto;
+  grid-template-rows: 100px auto auto;
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+  position: relative;
+}
+
+.cell {
+  font-size: 35px;
+  font-weight: 500;
+  width: 100px;
+  height: 100px;
+  background: white;
+  border: 1px solid #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  cursor: pointer; /* make a custom cursor X/O */
+  box-shadow: 5px 10px #888888;
+}
+
+.cell .cell-x {
+  color: black;
+}
+
+.cell .cell-o {
+  color: red;
+}
+
+.error {
+  color: purple;
+  font-size: 10px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.clear-btn {
+  position: relative;
+  height: 50px;
+  width: 100px;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,25 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "debug": false,
+          "useBuiltIns": "usage"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "src": "./"
+        }
+      }
+    ]
+  ],
+  "sourceType": "unambiguous"
+}
