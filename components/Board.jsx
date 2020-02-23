@@ -33,7 +33,7 @@ function Board() {
 
   useEffect(() => {
     // every time the board updates, check if someone won
-  }, boardState);
+  }, [boardState]);
 
   return (
     <React.Fragment>
