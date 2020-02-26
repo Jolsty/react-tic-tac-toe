@@ -33,6 +33,7 @@ function Board() {
 
   useEffect(() => {
     // every time the board updates, check if someone won
+    // keked
   }, [boardState]);
 
   return (
