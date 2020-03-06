@@ -1,31 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import BoardCell from 'components/BoardCell';
 import { createBoard, STATES } from 'utils';
+import { boardReducer } from 'reducers';
 
 function Board() {
-  const [boardState, setBoardState] = useState(createBoard());
+  const [state, dispatch] = useReducer(boardReducer, createBoard());
   const [turn, setTurn] = useState(0);
   const [winner, setWinner] = useState(0); // 0: nobody, 1: player 1, 2: player 2
 
-  const updateBoard = (uuid) => {
-    setBoardState((prevState) => {
-      let clonedState = [...prevState];
-      clonedState.filter((cell, i) => {
-        if (cell.uuid === uuid) {
-          const currentCell = clonedState[i].cellState;
-          if (currentCell === STATES.EMPTY) {
-            clonedState[i].cellState = turn ? STATES.O : STATES.X;
-            setTurn(!turn);
-          } else alert('Invalid move');
-        }
-      });
-
-      return clonedState;
-    });
-  };
-
   const clearBoard = () => {
-    setBoardState(createBoard());
+    // setBoardState(createBoard());
+    dispatch({
+      type: 'reset',
+      payload: {
+        createBoard,
+      },
+    });
     setTurn(0);
     setWinner(0);
     return;
@@ -34,7 +24,7 @@ function Board() {
   useEffect(() => {
     // every time the board updates, check if someone won
     // keked
-  }, [boardState]);
+  }, [state]);
 
   return (
     <React.Fragment>
@@ -47,15 +37,9 @@ function Board() {
         Clear
       </button>
       <div className="game-board">
-        {boardState &&
-          boardState.length > 0 &&
-          boardState.map(({ uuid, cellState }) => (
-            <BoardCell
-              key={uuid}
-              item={{ uuid, cellState }}
-              updateBoard={updateBoard}
-            />
-          ))}
+        {state.map(({ uuid, cellState }) => (
+          <BoardCell key={uuid} item={{ uuid, cellState }} dispatch={dispatch} />
+        ))}
       </div>
     </React.Fragment>
   );
