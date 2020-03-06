@@ -17,7 +17,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react", "html", "jsx-a11y"],
+  "plugins": ["react", "html", "jsx-a11y", "prettier"],
   "settings": {
     "react": {
       "pragma": "React",
