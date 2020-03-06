@@ -1,5 +1,3 @@
-import { STATES } from 'src/utils';
-
 export function boardReducer(state, action) {
   const { type, payload } = action;
 
