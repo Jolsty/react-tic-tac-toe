@@ -12,5 +12,8 @@ export function boardReducer(state, action) {
     case 'reset': {
       return payload.createBoard();
     }
+    default: {
+      return state;
+    }
   }
 }
